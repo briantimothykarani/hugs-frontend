@@ -1,3 +1,7 @@
+// src/components/LandingPage.tsx
+
+// REMOVED: import { GraduationCap, MessageSquare } from "lucide-react"; 
+
 import Landingpageaboutus from "./Landingpageaboutus"
 import Landingpagefooter from "./LandingpageFooter"
 import LandingPagehero from "./Landingpagehero"
@@ -13,7 +17,6 @@ function LandingPage() {
             <Landingpagetestimonials />
             <Landingpagefooter />
         </>
-
     )
 }
 export default LandingPage

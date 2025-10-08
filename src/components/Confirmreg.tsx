@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 function Confirmreg() {
 
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [loading] = useState(false);
+    const [error] = useState<string | null>(null);
 
     // Function to delete the student by ID
 
