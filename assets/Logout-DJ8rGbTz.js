@@ -1,1 +1,0 @@
-import{u as o,r as t,j as r}from"./index-QLpKP0Lq.js";function s(){const e=o();return t.useEffect(()=>{localStorage.removeItem("access"),localStorage.removeItem("refresh"),e("/login")},[]),r.jsx("p",{children:"Logging out..."})}export{s as default};

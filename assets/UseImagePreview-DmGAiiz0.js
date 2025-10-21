@@ -1,1 +1,0 @@
-import{r as a}from"./index-QLpKP0Lq.js";function u(r){const[n,t]=a.useState(null);return a.useEffect(()=>{if(!r){t(null);return}const e=new FileReader;return e.onload=()=>t(e.result),e.readAsDataURL(r),()=>{e.abort()}},[r]),n}export{u};

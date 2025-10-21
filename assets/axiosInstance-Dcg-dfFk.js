@@ -1,1 +1,0 @@
-import{a}from"./index-ngrFHoWO.js";const r=a.create({baseURL:"http://localhost:8000/api"});r.interceptors.request.use(e=>{const t=localStorage.getItem("access");return t&&(e.headers.Authorization=`Bearer ${t}`),e},e=>Promise.reject(e));export{r as a};
