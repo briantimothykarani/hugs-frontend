@@ -2,13 +2,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-
-} from 'react-router-dom';
 
 import App from './App';
 import Signup from './components/Signup';
@@ -29,74 +24,61 @@ import Createc from './components/Createc';
 import PrivateRoute from './components/PrivateRoute';
 import { StudentFormProvider } from './context/StudentFormContext';
 
-const router = createBrowserRouter([
-  { path: '/', element: <App /> },
-  { path: '/login', element: <Login /> },
-  { path: '/signup', element: <Signup /> },
-  { path: '/logout', element: <Logout /> },
-
-  {
-   path:'/read/:id',
-   element:<Read />,
-   },
-   {
-    path:'/home/:id',
-   element:<Home />,
-   }, 
-  {
-    path: '/update/:id',
-    element: <Update />,
-  },
-  {
-    path: '/delete/:id',
-    element: <DeleteStudent />,
-  },
-  {
-    path: '/chatbox',
-    element: <PrivateRoute><ChatBox currentUser="currentUser" otherUser="otherUser" /></PrivateRoute>,
-  },
-  // Multi-step form routes wrapped in StudentFormProvider
-  {
-    path: '/create',
-    element: (
-      <StudentFormProvider>
-        <PrivateRoute>
-          <Create />
-        </PrivateRoute>
-      </StudentFormProvider>
-    ),
-  },
-  {
-    path: '/createb',
-    element: (
-      <StudentFormProvider>
-        <PrivateRoute>
-          <Createb />
-        </PrivateRoute>
-      </StudentFormProvider>
-    ),
-  },
-  {
-    path: '/createc',
-    element: (
-      <StudentFormProvider>
-        <PrivateRoute>
-          <Createc />
-        </PrivateRoute>
-      </StudentFormProvider>
-    ),
-  },
-
-
-
-  // Public routes
-  { path: '/passwordreset', element: <PasswordReset /> },
-  { path: '/passwordresetconfirm', element: <PasswordResetConfirm /> },
-  { path: '/confirmreg', element: <Confirmreg /> },
-  // ...other routes
-]);
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter basename="/hugs-frontend">
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/read/:id" element={<Read />} />
+        <Route path="/home/:id" element={<Home />} />
+        <Route path="/update/:id" element={<Update />} />
+        <Route path="/delete/:id" element={<DeleteStudent />} />
+        <Route
+          path="/chatbox"
+          element={
+            <PrivateRoute>
+              <ChatBox currentUser="currentUser" otherUser="otherUser" />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <StudentFormProvider>
+              <PrivateRoute>
+                <Create />
+              </PrivateRoute>
+            </StudentFormProvider>
+          }
+        />
+        <Route
+          path="/createb"
+          element={
+            <StudentFormProvider>
+              <PrivateRoute>
+                <Createb />
+              </PrivateRoute>
+            </StudentFormProvider>
+          }
+        />
+        <Route
+          path="/createc"
+          element={
+            <StudentFormProvider>
+              <PrivateRoute>
+                <Createc />
+              </PrivateRoute>
+            </StudentFormProvider>
+          }
+        />
+        <Route path="/passwordreset" element={<PasswordReset />} />
+        <Route path="/passwordresetconfirm" element={<PasswordResetConfirm />} />
+        <Route path="/confirmreg" element={<Confirmreg />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
+
